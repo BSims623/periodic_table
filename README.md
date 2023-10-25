@@ -1,0 +1,1 @@
+This is a periodic table project from freeCodeCamp. In this project one has to edit a periodic table database and then create a script which allows a user to pull an elements data from the database by entering the elements atomic number, symbol, or name.
