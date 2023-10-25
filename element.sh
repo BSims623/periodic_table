@@ -3,7 +3,10 @@
 PSQL="psql --username=freecodecamp --dbname=periodic_table -t --no-align -c"
 
 RETURN_ELEMENT() {
-  echo return element
+  echo "$1" | while IFS="|" read TYPE_ID ATOMIC_NUMBER SYMBOL NAME ATOMIC_MASS MELTING_POINT_CELSIUS BOILING_POINT_CELSIUS TYPE 
+  do 
+  echo "The element with atomic number $ATOMIC_NUMBER is $NAME ($SYMBOL). It's a $TYPE, with a mass of $ATOMIC_MASS amu. $NAME has a melting point of $MELTING_POINT_CELSIUS celsius and a boiling point of $BOILING_POINT_CELSIUS celsius."
+  done
 }
 
 NO_MATCH='TRUE'
@@ -32,7 +35,7 @@ then
 echo I could not find that element in the database.
 NO_MATCH='FALSE'
 else
-RETURN_ELEMENT "$GET_DATA_USING_ATOMIC_NUMBER"
+RETURN_ELEMENT "$GET_DATA_USING_SYMBOL"
 NO_MATCH='FALSE'
 fi
 fi
